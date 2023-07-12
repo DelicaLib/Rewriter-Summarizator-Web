@@ -1,0 +1,84 @@
+// main: ../style.less
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+}
+
+nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1vw;
+}
+.nav-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    &-header {
+        font-size: 48px;
+        color: @lightFontColor;
+        margin: 0;
+    }
+    &-image {
+        width: 30vw;
+    }
+    &-button {
+        font-size: 36px;
+        background-color: @buttonColor;
+        width: fit-content;
+        padding: 1vw 4vw;
+        border-radius: 3vw;
+        outline: none;
+        cursor: pointer;
+        transition: all .1s linear;
+        &:hover {
+            background-color: darken(@buttonColor, 20%);
+            color: darken(@lightFontColor, 20%);
+        }
+    }
+}
+
+.link-github {
+    font-size: 30px;
+}
+
+.header-links {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.header-link {
+    padding-top: 0.2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33vw;
+    &-left {
+        padding-left: 1vw;
+        display: flex;
+        justify-content:start;
+        align-items: center;
+    }
+    &-right {
+        padding-right: 1vw;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+}
+
+.more {
+    margin-top: 1vw;
+    font-size: 18px;
+    &::after {
+        content: "";
+        width: 0;
+        height: 0;
+    }
+}
