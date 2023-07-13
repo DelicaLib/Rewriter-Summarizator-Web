@@ -24,7 +24,7 @@ def req(s, num_return_sequences=6, num_beams=5, no_repeat_ngram_size=3, repetiti
         })
         
         if response.json()['comment'] == "Ok!":
-            return response.json()['predictions']
+            return response.json()
         else:
             return response.json()['comment']
 
