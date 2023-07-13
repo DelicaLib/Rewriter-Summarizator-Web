@@ -19,17 +19,5 @@ def req(s, num_return_sequences = 6, num_beams = 5, no_repeat_ngram_size = 3, re
                       }
                     ]
                 })
-    if(response.json()['comment'] == "Ok!"):
-        print("Текст успешно изменен!\n")
-        print(response.json()['prediction_best']['bertscore'])
-    else:
-        print(response.json()['comment'])
-
-def main():
-    l = list(iter(input, ''))
-    s = str()
-    for i in l:
-        s += i
-    req(s)
-if __name__ == '__main__':
-    main()
+    
+        return response.json()['prediction_best']['bertscore']
