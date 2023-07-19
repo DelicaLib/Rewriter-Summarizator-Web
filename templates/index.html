@@ -171,19 +171,12 @@
         <div class="AI-result main-window" id="summarizator-result" style="display: none;">
             <div class="variant-buttons">
                 <div class="variant-buttons-line">
-                    <div class="four">
-                        <button class="variant-button current" id="variant-1">Лучший вариант</button>
-                        <button class="variant-button" id="variant-2">Вариант 2</button>
-                        <button class="variant-button" id="variant-3">Вариант 3</button>
-                        <button class="variant-button" id="variant-4">Вариант 4</button>
-                        <button class="more-variants" id="variants-next">Больше ></button>
-                    </div>
-                    <div class="four">
-                        <button class="more-variants" id="variants-back">< Назад</button>
-                        <button class="variant-button" id="variant-5">Вариант 5</button>
-                        <button class="variant-button" id="variant-6">Вариант 6</button>
-                        <button class="variant-button" id="variant-7">Вариант 7</button>
-                        <button class="more-variants" id="variants-next">Больше ></button>
+                    <div class="four" id="four-0">
+                        <button class="variant-button current" id="variant" name="variant-1" onClick="variantClick(this)">Лучший вариант</button>
+                        <button class="variant-button" id="variant" name="variant-2" onClick="variantClick(this)">Вариант 2</button>
+                        <button class="variant-button" id="variant" name="variant-3" onClick="variantClick(this)">Вариант 3</button>
+                        <button class="variant-button" id="variant" name="variant-4" onClick="variantClick(this)">Вариант 4</button>
+                        <button class="more-variants" id="variant-next" name="variants-next" onClick="Summarizator.nextPageResult()">Больше ></button>
                     </div>
                 </div>
             </div>
@@ -195,5 +188,7 @@
     <section id="rewriter"></section>
     <div class="tooltip"></div>
 </body>
+<script src="../static/scripts/IAIModel.js"></script>
+<script src="../static/scripts/summarizator.js"></script>
 <script src="../static/scripts/script.js"></script>
-</html>
+</html> 
