@@ -1,0 +1,262 @@
+// main: ../style.less
+section {
+    min-height: calc(100vh - 2*3vw);
+    width: calc(100% - 2*3vw);
+    padding: 3vw;
+    overflow: hidden;
+}
+
+.main-window {
+    width: calc(100% - 1vw - 2vw);
+    min-height: calc(100vh - 2*3vw - 2*1vw);
+    height: auto;
+    background-color: white;
+    border-radius: 3vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
+    &-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+}
+
+.input-header {
+    margin: 0;
+    margin-bottom: 1vw;
+    color: @darkFontColor;
+    font-size: 3vw;
+}
+
+textarea {
+    position: relative;
+    border: none;
+    outline: none;
+    background-color: lighten(@mainLinkColor, 15%);
+    width: 40vw;
+    border-radius: 2.5vw;
+    padding: 1.5vw;
+    margin-right: 1.5vw;
+    resize: none;
+    transition: all .1s linear;
+    font-size: 1vw;
+    &:focus{
+        outline: 1px solid @buttonColor;
+        background-color: lighten(@mainLinkColor, 20%);
+        border: none;
+    }
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    color: @darkFontColor;
+    &-buttons {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.input-settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 1vw;
+}
+
+.modes-settings-header {
+    font-size: 1.4vw;
+    font-weight: 700;
+    margin-bottom: 0.5vw;
+}
+
+.modes-settings {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1vw;
+    & button {
+        padding: 1vw 3vw;
+        font-size: 1.2vw;
+    }
+}
+
+.current {
+    background-color: darken(@buttonColor, 30%);
+    cursor: default;
+    &:hover {
+        background-color: darken(@buttonColor, 30%);
+        color: @lightFontColor;
+    }
+}
+
+.extra-settings-button {
+    cursor: pointer;
+    &:hover {
+        color: darken(@mainLinkColor, 20%);
+    }
+}
+
+.extra-settings {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: .7;
+    height: 0;
+    width: auto;
+    background-color: @mainLinkColor;
+    padding: 0;
+    border-radius: 0px 0px 2.5vw 2.5vw;
+    &-main {
+        display: flex;
+        justify-content: space-between;
+    }
+    &-container {
+        width: 40%;
+        margin-right: 1vw;
+    }
+}
+
+.extra-setting {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 0.3vw;
+    margin: 0vw 0.5vw 1vw 0.5vw;
+    &-label {
+        display: flex;
+        align-items: center;
+        & input[type="checkbox"] {
+            appearance: none;
+            background-color: white;
+            font-size: 1.25vw;
+            color: black;
+            margin: 0;
+            margin-right: 0.3vw;
+            width: 1.3vw;
+            height: 1.3vw;
+            border-radius: 0.3vw;
+            transition: .1s linear;
+            &:not(:disabled):not(:checked):hover {
+                background-color: lighten(@mainLinkColor, 15%);
+            }
+            &:not(:disabled):checked {
+                background-color: lighten(@buttonColor, 20%);
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='-1 -1 10 10'%3e%3cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+            }
+            &:disabled {
+                background-color: darken(@mainLinkColor, 10%);
+            }
+        }
+        & label {
+            border-bottom: 1px dotted black;
+            cursor: help;
+        }
+    }
+    & input[type="number"] {
+        outline: none;
+        margin: 0;
+        border: 0;
+        background-color: white;
+        border-radius: 0.3vw;
+        max-width: 20%;
+        &:not(:disabled):focus {
+            background-color: lighten(@mainLinkColor, 15%);
+        }
+        &:disabled {
+            background-color: darken(@mainLinkColor, 10%);
+            color: lighten(@mainLinkColor, 5%);
+        }
+    }
+}
+
+.generate-method {
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+    margin-top: 0.5vw;
+    & button {
+        font-size: 1.2vw;
+    }
+    margin-bottom: 1vw;
+}
+
+.AI-info {
+    margin-left: 1vw;
+}
+
+.AI-result {
+    margin-top: 1vw;
+    color: black;
+}
+
+.AI-text {
+    font-size: 1.2vw;
+    line-height: 1.7vw;
+}
+
+.variant {
+    &-buttons {
+        position: relative;
+        width: 100%;
+    }
+    &-buttons-line {
+        position: relative;
+        display: flex;
+        width: 206%;
+        left: 0;
+        transition: all ease 1s;
+    }
+    &-button {
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        width: 20%;
+        padding-bottom: 0.5vw;
+        border-bottom: 2px solid black;
+        margin-right: 3%;
+        font-size: 1.8vw;
+        transition: all .1s linear;
+        &:hover {
+            color: lighten(black, 50%);
+            border-bottom: 2px solid lighten(black, 50%);
+        }
+        &.current {
+            background-color: inherit;
+            color:  darken(@buttonColor, 20%);
+            border-bottom: 2px solid @buttonColor;
+            &:hover {
+                color:  darken(@buttonColor, 20%);
+                border-bottom: 2px solid @buttonColor;
+            }
+        }
+    }
+}
+
+.four {
+    display: flex;
+    width: 50%;
+}
+
+.more-variants {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 15%;
+    padding-bottom: 0.5vw;
+    border-bottom: 2px solid black;
+    margin-right: 3%;
+    font-size: 1.8vw;
+    transition: all .1s linear;
+    &:hover {
+        color: lighten(black, 50%);
+        border-bottom: 2px solid lighten(black, 50%);
+    }
+}

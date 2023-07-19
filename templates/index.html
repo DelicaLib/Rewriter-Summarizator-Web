@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -17,12 +18,13 @@
                 <a href="https://developers.sber.ru" class="link" target="_blank">Создано с использованием моделей от Sber</a>
             </div>
             <div class="header-link">
+                <img src="../static/image/icons/github.png" alt="github" class="icon">
                 <a href="https://github.com/DelicaLib/Rewriter-Summarizator-Web" class="link link-github" target="_blank">
-                    <img src="../static/image/icons/github.png" alt="github" class="icon"> Наш GitHub
+                     Наш GitHub
                 </a>
             </div>
             <div class="header-link header-link-right">
-                <a href="№" class="link" target="_blank">Инструкция к использованию</a>
+                <a href="#" class="link" target="_blank">Инструкция к использованию</a>
             </div>
         </div>
         <nav>
@@ -31,22 +33,167 @@
                     Суммаризатор
                 </h2>
                 <img class="nav-element-image" src="../static/image/summarizator.png" alt="summarizator">
-                <button class="nav-element-button">
+                <button class="nav-element-button" onClick="goToSummarizator()">
                     Перейти
                 </button>
-                <a href="https://developers.sber.ru/portal/products/summarizer?attempt=1" class="link more" target="_blank">Подробнее</a>
+                <a href="https://developers.sber.ru/portal/products/summarizer" class="link more" target="_blank">Подробнее</a>
             </div>
             <div class="nav-element">
                 <h2 class="nav-element-header">
                     Рерайтер
                 </h2>
                 <img class="nav-element-image" src="../static/image/rewriter.png" alt="summarizator">
-                <button class="nav-element-button">
+                <button class="nav-element-button" onClick="goToRewriter()">
                     Перейти
                 </button>
-                <a href="https://developers.sber.ru/portal/products/summarizer?attempt=1" class="link more" target="_blank">Подробнее</a>
+                <a href="https://developers.sber.ru/portal/products/rewriter" class="link more" target="_blank">Подробнее</a>
             </div>
         </nav>
     </header>
+    <section id="summarizator">
+        <div class="main-window">
+            <h3 class="input-header">Суммаризатор</h3>
+            <div class="main-window-container">
+                <textarea placeholder="Введите свой текст здесь. Минимальная длина: 10 символов" id="original-text"></textarea>
+                <div class="input-control">
+                    <div class="input-settings">
+                        <span class="modes-settings-header">Выберите режим</span>
+                        <div class="modes-settings">
+                            <button name="standart" id="mode" class="nav-element-button">
+                                Стандарт
+                            </button>
+                            <button name="original" id="mode" class="nav-element-button">
+                                Оригинальность
+                            </button>
+                            <button name="user" id="mode" class="nav-element-button">
+                                Пользовательский
+                            </button>
+                        </div>
+                        <span class="link extra-settings-button noselect" onClick="Summarizator.changeExtraSettingMenuStatus()">Дополнительные настройки</span>
+                        <div class="extra-settings">
+                            <div class="generate-method">
+                                <button name="beamsearch" id="method" class="nav-element-button current" data-tooltip="Привет, я Дима Воронков">
+                                    Beamsearch
+                                </button>
+                                <button name="sampling" id="method" class="nav-element-button" data-tooltip="Привет, я не Дима Воронков">
+                                    Sampling
+                                </button>
+                            </div>  
+                            <div class="extra-settings-main">
+                                <div class="extra-settings-container">
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="num_beams">
+                                            <label for="num_beams" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                num_beams: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="num_beams" id="num_beams" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="num_return_sequences">
+                                            <label for="num_return_sequences" class="noselect" data-tooltip="Всем привет, я не пидарас">
+                                                num_return_sequences: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="num_return_sequences" id="num_return_sequences" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="no_repeat_ngram_size">
+                                            <label for="no_repeat_ngram_size" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                no_repeat_ngram_size: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="no_repeat_ngram_size" id="no_repeat_ngram_size" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="repetition_penalty">
+                                            <label for="repetition_penalty" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                repetition_penalty: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="repetition_penalty" id="repetition_penalty" step="0.01" value="0.0" disabled>
+                                    </div>
+                                </div>
+                                <div class="extra-settings-container">
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="top_k">
+                                            <label for="top_k" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                top_k: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="top_k" id="top_k" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="top_p">
+                                            <label for="top_p" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                top_p: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="top_p" id="top_p" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="temperature">
+                                            <label for="temperature" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                temperature: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="temperature" id="temperature" step="0.01" value="0.0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="length_penalty">
+                                            <label for="length_penalty" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                length_penalty: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="length_penalty" id="length_penalty" step="0.01" value="0.0" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-control-buttons">
+                        <button class="nav-element-button" id="submit" disabled>
+                            Сжать текст
+                        </button>
+                        <span class="AI-info" id="summarizator-info"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AI-result main-window" id="summarizator-result" style="display: none;">
+            <div class="variant-buttons">
+                <div class="variant-buttons-line">
+                    <div class="four">
+                        <button class="variant-button current" id="variant-1">Лучший вариант</button>
+                        <button class="variant-button" id="variant-2">Вариант 2</button>
+                        <button class="variant-button" id="variant-3">Вариант 3</button>
+                        <button class="variant-button" id="variant-4">Вариант 4</button>
+                        <button class="more-variants" id="variants-next">Больше ></button>
+                    </div>
+                    <div class="four">
+                        <button class="more-variants" id="variants-back">< Назад</button>
+                        <button class="variant-button" id="variant-5">Вариант 5</button>
+                        <button class="variant-button" id="variant-6">Вариант 6</button>
+                        <button class="variant-button" id="variant-7">Вариант 7</button>
+                        <button class="more-variants" id="variants-next">Больше ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="AI-text">
+                <p id="AI-text"></p>
+            </div>
+        </div>
+    </section>
+    <section id="rewriter"></section>
+    <div class="tooltip"></div>
 </body>
+<script src="../static/scripts/script.js"></script>
 </html>
