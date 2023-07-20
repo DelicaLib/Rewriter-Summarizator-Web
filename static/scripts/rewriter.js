@@ -93,7 +93,6 @@ class Rewriter extends IAIModel {
                             Rewriter.AIResults.push(element)
                         }
                     });
-                    console.log(Rewriter.AIResults)
                     Rewriter.currentResult = 1
                     Rewriter.currentPage = 1
                     Rewriter.generatePageResult()
