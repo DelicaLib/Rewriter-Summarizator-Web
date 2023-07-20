@@ -26,7 +26,7 @@ class Summarizator extends IAIModel {
             Summarizator.setSettingValue("length_penalty", true, 0.5)
         }   
         else if ($(object).attr("name") == "original") {
-            Summarizator.setMethodSettings($("button[name=sampling"))
+            Summarizator.setMethodSettings($("#summarizator button[name=sampling"))
             Summarizator.setSettingValue("num_return_sequences", false, undefined)
             Summarizator.setSettingValue("no_repeat_ngram_size", false, undefined)
             Summarizator.setSettingValue("repetition_penalty", false, undefined)
@@ -88,7 +88,7 @@ class Summarizator extends IAIModel {
 
     static sendTextToModel() {
         var inputData = {}
-        inputData["text"] = $("#summarizator #original-text").val()
+        inputData["text"] = $("#summarizator-original-text").val()
         inputData["genstrategy"] = $("#summarizator button#method.current").prop("name")
         if (inputData["genstrategy"] == "beamsearch") {
             inputData = Object.assign({}, inputData, Summarizator.getBeamseacrhData())
@@ -110,7 +110,7 @@ class Summarizator extends IAIModel {
                     $("#summarizator .variant-buttons-line").css("margin-left", "0")
                     $("#summarizator .four").not("#four-0").remove()
                     Summarizator.AIResults.splice(0, Summarizator.AIResults.length)
-                    $("#summarizator-result").css("display", "flex")
+                    
                     var responseText = response["prediction_best"]["bertscore"].replace("\n", "<br>")
                     response["predictions"].forEach(element => {
                         element = element.replace("\n", "<br>")
@@ -125,11 +125,11 @@ class Summarizator extends IAIModel {
                     Summarizator.currentPage = 1
                     Summarizator.generatePageResult()
                     Summarizator.setResultVariant(1)
+                    $("#summarizator-result").css("display", "flex")
                     $('html, body').animate({
                         scrollTop: $("#summarizator-result").offset().top
                     }, 500);
                 }
-                $("#summarizator-result").css("display", "flex")
                 $("#summarizator-result #AI-text").text()
             }
         });

@@ -32,7 +32,7 @@ def request(inputData):
             inputData
         ]
     }).json()
-    if ("detail" in response):
+    if "detail" in response:
         return {"comment": "Ошибка"}
     
     if response['comment'] == "Ok!":

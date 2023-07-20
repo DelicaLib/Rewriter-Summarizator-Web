@@ -5,7 +5,6 @@ class IAIModel {
     static pageCount = 0
     static changeExtraSettingMenuStatus() {}
     static setModeSettings(object) {}
-    static setMethodSettings(object) {}
     static setDisabledInputs(id, doDisabled) {}
     static setSettingValue(settingId, available = true, value = 0) {}
     static sendTextToModel() {}

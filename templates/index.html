@@ -54,7 +54,7 @@
         <div class="main-window">
             <h3 class="input-header">Суммаризатор</h3>
             <div class="main-window-container">
-                <textarea placeholder="Введите свой текст здесь. Минимальная длина: 10 символов" id="original-text"></textarea>
+                <textarea placeholder="Введите свой текст здесь. Минимальная длина: 10 символов" id="summarizator-original-text"></textarea>
                 <div class="input-control">
                     <div class="input-settings">
                         <span class="modes-settings-header">Выберите режим</span>
@@ -185,10 +185,110 @@
             </div>
         </div>
     </section>
-    <section id="rewriter"></section>
+    <section id="rewriter">
+        <div class="main-window">
+            <h3 class="input-header">Рерайтер</h3>
+            <div class="main-window-container">
+                <textarea placeholder="Введите свой текст здесь. Минимальная длина: 10 символов" id="rewriter-original-text"></textarea>
+                <div class="input-control">
+                    <div class="input-settings">
+                        <span class="modes-settings-header">Выберите режим</span>
+                        <div class="modes-settings">
+                            <button name="standart" id="mode" class="nav-element-button">
+                                Стандарт
+                            </button>
+                            <button name="original" id="mode" class="nav-element-button">
+                                Оригинальность
+                            </button>
+                            <button name="user" id="mode" class="nav-element-button">
+                                Пользовательский
+                            </button>
+                        </div>
+                        <span class="link extra-settings-button noselect" onClick="Rewriter.changeExtraSettingMenuStatus()">Дополнительные настройки</span>
+                        <div class="extra-settings">
+                            <div class="extra-settings-main">
+                                <div class="extra-settings-container">
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="num_return_sequences">
+                                            <label for="num_return_sequences" class="noselect" data-tooltip="Всем привет, я не пидарас">
+                                                num_return_sequences: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="num_return_sequences" id="num_return_sequences" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="repetition_penalty">
+                                            <label for="repetition_penalty" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                repetition_penalty: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="repetition_penalty" id="repetition_penalty" step="0.01" value="0.0" disabled>
+                                    </div>
+                                </div>
+                                <div class="extra-settings-container">
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="top_k">
+                                            <label for="top_k" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                top_k: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="top_k" id="top_k" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="top_p">
+                                            <label for="top_p" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                top_p: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="top_p" id="top_p" value="0" disabled>
+                                    </div>
+                                    <div class="extra-setting">
+                                        <div class="extra-setting-label">
+                                            <input type="checkbox" id="temperature">
+                                            <label for="temperature" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                                temperature: 
+                                            </label>
+                                        </div>
+                                        <input type="number" name="temperature" id="temperature" step="0.01" value="0.0" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-control-buttons">
+                        <button class="nav-element-button" id="submit" disabled>
+                            Сжать текст
+                        </button>
+                        <span class="AI-info" id="rewriter-info"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AI-result main-window" id="rewriter-result" style="display: none;">
+            <div class="variant-buttons">
+                <div class="variant-buttons-line">
+                    <div class="four" id="four-0">
+                        <button class="variant-button current" id="variant" name="variant-1" onClick="variantClick(this)">Bertscore</button>
+                        <button class="variant-button" id="variant" name="variant-2" onClick="variantClick(this)">Classifier</button>
+                        <button class="variant-button" id="variant" name="variant-3" onClick="variantClick(this)">Вариант 3</button>
+                        <button class="variant-button" id="variant" name="variant-4" onClick="variantClick(this)">Вариант 4</button>
+                        <button class="more-variants" id="variant-next" name="variants-next" onClick="Rewriter.nextPageResult()">Больше ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="AI-text">
+                <p id="AI-text"></p>
+            </div>
+        </div>
+    </section>
     <div class="tooltip"></div>
 </body>
 <script src="../static/scripts/IAIModel.js"></script>
 <script src="../static/scripts/summarizator.js"></script>
+<script src="../static/scripts/rewriter.js"></script>
 <script src="../static/scripts/script.js"></script>
 </html> 
