@@ -132,7 +132,7 @@ function getModelName(object) {
 
 
 function variantClick(object) {
-    var modelName = getModelName(this)
+    var modelName = getModelName(object)
     if (modelName == "summarizator") {
         if ($(object).prop("id") == "variant-prev")
         {
