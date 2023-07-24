@@ -10,7 +10,7 @@ class Summarizator extends IAIModel {
         else {
             extraSettingsMenu.addClass("opened")
         }
-        extraSettingsMenu.animate({"height": height + "%"}, 200)
+        extraSettingsMenu.animate({"height": height + "%"}, {queue:false, duration: 200, easing: 'swing'})
     }
 
     static setModeSettings(object) {
