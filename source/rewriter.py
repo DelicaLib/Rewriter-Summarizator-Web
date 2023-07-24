@@ -8,11 +8,11 @@ def parseInputData(inputData):
     if "range_mode" in inputData:
         readyInputData["range_mode"] = inputData["range_mode"]
     if "num_return_sequences" in inputData:
-        readyInputData["num_return_sequences"] = int(inputData["num_return_sequences"])
+        readyInputData["num_return_sequences"] = int(round(float(inputData["num_return_sequences"]), 1))
     if "repetition_penalty" in inputData:
         readyInputData["repetition_penalty"] = float(inputData["repetition_penalty"])  
     if "top_k" in inputData:
-        readyInputData["top_k"] = int(inputData["top_k"])
+        readyInputData["top_k"] = int(round(float(inputData["top_k"]), 1))
     if "top_p" in inputData:
         readyInputData["top_p"] = float(inputData["top_p"])
     if "temperature" in inputData:

@@ -51,12 +51,14 @@ class Summarizator extends IAIModel {
             Summarizator.setDisabledInputs("top_k", true)
             Summarizator.setDisabledInputs("top_p", true)
             Summarizator.setDisabledInputs("temperature", true)
+            Summarizator.setDisabledInputs("length_penalty", false)
         }
         else {
             Summarizator.setDisabledInputs("num_beams", true)
             Summarizator.setDisabledInputs("top_k", false)
             Summarizator.setDisabledInputs("top_p", false)
             Summarizator.setDisabledInputs("temperature", false)
+            Summarizator.setDisabledInputs("length_penalty", true)
         }
     }
 
@@ -131,6 +133,11 @@ class Summarizator extends IAIModel {
                     }, 500);
                 }
                 $("#summarizator-result #AI-text").text()
+            },
+            error: function (response)
+            {
+                 $("#summarizator-info").text("Ошибка сервера")
+
             }
         });
     }

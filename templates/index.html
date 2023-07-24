@@ -72,11 +72,11 @@
                         <span class="link extra-settings-button noselect" onClick="Summarizator.changeExtraSettingMenuStatus()">Дополнительные настройки</span>
                         <div class="extra-settings">
                             <div class="generate-method">
-                                <button name="beamsearch" id="method" class="nav-element-button current" data-tooltip="Привет, я Дима Воронков">
-                                    Beamsearch
+                                <button name="beamsearch" id="method" class="nav-element-button" data-tooltip="Привет, я Дима Воронков">
+                                    Лучевой
                                 </button>
                                 <button name="sampling" id="method" class="nav-element-button" data-tooltip="Привет, я не Дима Воронков">
-                                    Sampling
+                                    Вероятностный
                                 </button>
                             </div>  
                             <div class="extra-settings-main">
@@ -84,8 +84,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="num_beams">
-                                            <label for="num_beams" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                num_beams: 
+                                            <label for="num_beams" class="noselect" data-tooltip="Этот параметр показывает количество гипотез на каждом временном шаге. Это целое число больше 1.">
+                                                Кол-во лучей: 
                                             </label>
                                         </div>
                                         <input type="number" name="num_beams" id="num_beams" value="0" disabled>
@@ -93,8 +93,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="num_return_sequences">
-                                            <label for="num_return_sequences" class="noselect" data-tooltip="Всем привет, я не пидарас">
-                                                num_return_sequences: 
+                                            <label for="num_return_sequences" class="noselect" data-tooltip="Количество последовательностей, которые вернёт ИИ в результате. Параметр является целым числом.">
+                                                Кол-во вариантов: 
                                             </label>
                                         </div>
                                         <input type="number" name="num_return_sequences" id="num_return_sequences" value="0" disabled>
@@ -102,8 +102,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="no_repeat_ngram_size">
-                                            <label for="no_repeat_ngram_size" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                no_repeat_ngram_size: 
+                                            <label for="no_repeat_ngram_size" class="noselect" data-tooltip="Показывает количество слов в сочетаниях слов. Это используется для того, чтобы ИИ избегал повторов сочетаний слов этой длины. Параметр является целым числом.">
+                                                Длина сочетаний слов: 
                                             </label>
                                         </div>
                                         <input type="number" name="no_repeat_ngram_size" id="no_repeat_ngram_size" value="0" disabled>
@@ -111,8 +111,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="repetition_penalty">
-                                            <label for="repetition_penalty" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                repetition_penalty: 
+                                            <label for="repetition_penalty" class="noselect" data-tooltip="Это число в диапазоне от 0 до 1, где 1 означает отсутствие штрафа.">
+                                                Штраф за повторы: 
                                             </label>
                                         </div>
                                         <input type="number" name="repetition_penalty" id="repetition_penalty" step="0.01" value="0.0" disabled>
@@ -122,7 +122,7 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="top_k">
-                                            <label for="top_k" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                            <label for="top_k" class="noselect" data-tooltip="Значение, которое отвечает за количество наиболее вероятных следующих слов. Целое неотрицательное число.">
                                                 top_k: 
                                             </label>
                                         </div>
@@ -131,7 +131,7 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="top_p">
-                                            <label for="top_p" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                            <label for="top_p" class="noselect" data-tooltip="Выбирается наименьший возможный набор слов, суммарная вероятность которых превышает вероятность p. Число в диапазоне от 0 до 1.">
                                                 top_p: 
                                             </label>
                                         </div>
@@ -140,8 +140,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="temperature">
-                                            <label for="temperature" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                temperature: 
+                                            <label for="temperature" class="noselect" data-tooltip="Параметр ИИ моделей, который регулирует случайность и, соответственно, креативность ответов. Это число в диапазоне от 0 до 1.">
+                                                Температура: 
                                             </label>
                                         </div>
                                         <input type="number" name="temperature" id="temperature" step="0.01" value="0.0" disabled>
@@ -149,8 +149,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="length_penalty">
-                                            <label for="length_penalty" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                length_penalty: 
+                                            <label for="length_penalty" class="noselect" data-tooltip="Экспоненциальный штраф к длине. значение > 0 способствует увеличению длины последовательностей, а значение < 0 - уменьшению длины последовательностей.">
+                                                Штраф за длину: 
                                             </label>
                                         </div>
                                         <input type="number" name="length_penalty" id="length_penalty" step="0.01" value="0.0" disabled>
@@ -211,8 +211,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="num_return_sequences">
-                                            <label for="num_return_sequences" class="noselect" data-tooltip="Всем привет, я не пидарас">
-                                                num_return_sequences: 
+                                            <label for="num_return_sequences" class="noselect" data-tooltip="Количество последовательностей, которые вернёт ИИ в результате. Параметр является целым числом.">
+                                                Кол-во вариантов: 
                                             </label>
                                         </div>
                                         <input type="number" name="num_return_sequences" id="num_return_sequences" value="0" disabled>
@@ -220,8 +220,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="repetition_penalty">
-                                            <label for="repetition_penalty" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                repetition_penalty: 
+                                            <label for="repetition_penalty" class="noselect" data-tooltip="Это число в диапазоне от 0 до 1, где 1 означает отсутствие штрафа.">
+                                                Штраф за повторы: 
                                             </label>
                                         </div>
                                         <input type="number" name="repetition_penalty" id="repetition_penalty" step="0.01" value="0.0" disabled>
@@ -231,7 +231,7 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="top_k">
-                                            <label for="top_k" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                            <label for="top_k" class="noselect" data-tooltip="Значение, которое отвечает за количество наиболее вероятных следующих слов. Целое неотрицательное число.">
                                                 top_k: 
                                             </label>
                                         </div>
@@ -240,7 +240,7 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="top_p">
-                                            <label for="top_p" class="noselect" data-tooltip="Всем привет, я пидарас">
+                                            <label for="top_p" class="noselect" data-tooltip="Выбирается наименьший возможный набор слов, суммарная вероятность которых превышает вероятность p. Число в диапазоне от 0 до 1.">
                                                 top_p: 
                                             </label>
                                         </div>
@@ -249,8 +249,8 @@
                                     <div class="extra-setting">
                                         <div class="extra-setting-label">
                                             <input type="checkbox" id="temperature">
-                                            <label for="temperature" class="noselect" data-tooltip="Всем привет, я пидарас">
-                                                temperature: 
+                                            <label for="temperature" class="noselect" data-tooltip="Параметр ИИ моделей, который регулирует случайность и, соответственно, креативность ответов. Это число в диапазоне от 0 до 1.">
+                                                Температура: 
                                             </label>
                                         </div>
                                         <input type="number" name="temperature" id="temperature" step="0.01" value="0.0" disabled>

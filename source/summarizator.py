@@ -8,17 +8,17 @@ def parseInputData(inputData):
     if "genstrategy" in inputData:
         readyInputData["genstrategy"] = inputData["genstrategy"]
     if "num_beams" in inputData:
-        readyInputData["num_beams"] = int(inputData["num_beams"])
+        readyInputData["num_beams"] = int(round(float(inputData["num_beams"]), 1))
     if "num_return_sequences" in inputData:
-        readyInputData["num_return_sequences"] = int(inputData["num_return_sequences"])
+        readyInputData["num_return_sequences"] = int(round(float(inputData["num_return_sequences"]), 1))
     if "no_repeat_ngram_size" in inputData:
-        readyInputData["no_repeat_ngram_size"] = int(inputData["no_repeat_ngram_size"])
+        readyInputData["no_repeat_ngram_size"] = int(round(float(inputData["no_repeat_ngram_size"]), 1))
     if "repetition_penalty" in inputData:
         readyInputData["repetition_penalty"] = float(inputData["repetition_penalty"])  
     if "length_penalty" in inputData:
         readyInputData["length_penalty"] = float(inputData["length_penalty"])    
     if "top_k" in inputData:
-        readyInputData["top_k"] = int(inputData["top_k"])
+        readyInputData["top_k"] = int(round(float(inputData["top_k"]), 1))
     if "top_p" in inputData:
         readyInputData["top_p"] = float(inputData["top_p"])
     if "temperature" in inputData:

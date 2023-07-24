@@ -103,6 +103,11 @@ class Rewriter extends IAIModel {
                     }, 500);
                 }
                 $("#rewriter-result #AI-text").text()
+            },
+            error: function (response)
+            {
+                 $("#summarizator-info").text("Ошибка сервера")
+
             }
         });
     }
