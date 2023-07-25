@@ -1,4 +1,8 @@
 class Rewriter extends IAIModel {
+    static currentPage = 1 // Номер текущей страницы с результатами
+    static currentResult = 1 // Номер текущего варианта
+    static AIResults = [] // Все варианты
+    static pageCount = 0 // Количество страниц
 
     static changeExtraSettingMenuStatus() {
         var extraSettingsMenu = $("#rewriter .extra-settings")
