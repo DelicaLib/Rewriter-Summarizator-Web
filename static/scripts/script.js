@@ -1,8 +1,9 @@
 $(window).on('load', function(){
     Summarizator.setModeSettings($("#summarizator #mode[name=standart]"))
     Rewriter.setModeSettings($("#rewriter #mode[name=standart]"))
-
+    setInputNumberCSS($("input[type=checkbox]"))
     $("input[type=checkbox]").change(function () {
+        setInputNumberCSS(this)
         var modelName = getModelName(this)
         number = $(this).parent().siblings(`input[type=number]`)
         inputsChange(this, $(this).parent().siblings(`input[type=number]`))
@@ -88,6 +89,11 @@ $(window).on('load', function(){
     $("#rewriter #submit").bind("click", function (e) {
         Rewriter.sendTextToModel()
     })
+    
+    $(window).on("resize", function () {
+        var checkboxes = $("input[type=checkbox]")
+        setInputNumberCSS(checkboxes)
+    })
 })
 
 
@@ -153,4 +159,16 @@ function variantClick(object) {
         var variantNumber = parseInt($(object).prop("name").split("-")[1])
         Rewriter.setResultVariant(variantNumber)
     }
+}
+function setInputNumberCSS(object) {
+    var objectSizeVectorImg = parseFloat($(object).css("width").split("px")[0])
+    $(object).each(function () { 
+        if ($(this).prop("checked")) {
+            $(this).css("background-image", `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='${objectSizeVectorImg}' height='${objectSizeVectorImg}' viewBox='-1 -1 10 10'%3e%3cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"`)
+        }
+        else
+        {
+            $(this).css("background-image", "none")
+        }
+    })
 }
