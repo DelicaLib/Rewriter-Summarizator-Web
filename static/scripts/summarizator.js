@@ -37,7 +37,6 @@ class Summarizator extends IAIModel {
             Summarizator.setSettingValue("top_k", false, undefined)
             Summarizator.setSettingValue("top_p", false, undefined)
             Summarizator.setSettingValue("temperature", false, undefined)
-            Summarizator.setSettingValue("length_penalty", false, undefined)
         }
         else {
             if (!$("#summarizator .extra-settings").hasClass("opened")) {
@@ -89,6 +88,7 @@ class Summarizator extends IAIModel {
             $(inputs[0]).prop("checked", true)
             $(inputs[1]).prop("value", value)
         }
+        setInputNumberCSS($(inputs[0]))
         inputsChange($(inputs[0]), $(inputs[1]))
     }
 

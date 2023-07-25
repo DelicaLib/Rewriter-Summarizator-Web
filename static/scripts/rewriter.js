@@ -65,6 +65,7 @@ class Rewriter extends IAIModel {
             $(inputs[0]).prop("checked", true)
             $(inputs[1]).prop("value", value)
         }
+        setInputNumberCSS($(inputs[0]))
         inputsChange($(inputs[0]), $(inputs[1]))
     }
 

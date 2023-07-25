@@ -139,8 +139,6 @@ function getModelName(object) {
 
 function variantClick(object) {
     var modelName = getModelName(object)
-    console.log(modelName)
-    console.log(Summarizator.AIResults)
     if (modelName == "summarizator") {
         if ($(object).prop("id") == "variant-prev")
         {
